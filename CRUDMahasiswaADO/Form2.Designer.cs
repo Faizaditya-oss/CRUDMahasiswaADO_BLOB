@@ -32,10 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbProdi = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnCetak = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.dtpTanggalMasuk = new System.Windows.Forms.DateTimePicker();
+            this.reportView = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,17 +76,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Tahun Masuk";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 299);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // btnCetak
             // 
             this.btnCetak.Location = new System.Drawing.Point(713, 415);
@@ -113,15 +103,37 @@
             this.dtpTanggalMasuk.Size = new System.Drawing.Size(200, 22);
             this.dtpTanggalMasuk.TabIndex = 9;
             // 
+            // reportView
+            // 
+            this.reportView.ActiveViewIndex = -1;
+            this.reportView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.reportView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.reportView.Location = new System.Drawing.Point(99, 107);
+            this.reportView.Name = "reportView";
+            this.reportView.Size = new System.Drawing.Size(645, 285);
+            this.reportView.TabIndex = 10;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(99, 110);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(645, 282);
+            this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.reportView);
             this.Controls.Add(this.dtpTanggalMasuk);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCetak);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbProdi);
             this.Controls.Add(this.label2);
@@ -141,9 +153,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbProdi;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnCetak;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.DateTimePicker dtpTanggalMasuk;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer reportView;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

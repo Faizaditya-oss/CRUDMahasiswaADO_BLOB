@@ -32,31 +32,22 @@ namespace CRUDMahasiswaADO
 
             try
             {
-                if(conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                SqlCommand cmd = new SqlCommand("sp_Report", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@inProdi", prodi);
-                cmd.Parameters.AddWithValue("@inTglMsuk", tglmasuk.Year);
-                
+                DataTable dtMahasiswa = dbLogic.getDataRekap(prodi, tglmasuk);
 
-                da = new SqlDataAdapter(cmd);
-
-                dtMahasiswa = new DataTable();
-                da.Fill(dtMahasiswa);
-
-                conn.Close();
-
-                listmahasiswa.SetDataSource(dtMahasiswa);
-                crystalReportViewer1.ReportSource = listmahasiswa;
+                listMahasiswa.SetDataSource(dtMahasiswa);
+                crystalReportViewer1.ReportSource = listMahasiswa;
                 crystalReportViewer1.Refresh();
             }
             catch (Exception ex)
             {
+                //simpanLog(ex.Message);
                 MessageBox.Show("Gagal load data: " + ex.Message);
             }
+        }
+
+        private void crystalReportViewer2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

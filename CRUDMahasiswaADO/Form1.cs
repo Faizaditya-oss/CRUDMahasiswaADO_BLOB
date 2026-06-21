@@ -321,7 +321,7 @@ namespace CRUDMahasiswaADO
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Report form2 = new Report();
             form2.Show();
             this.Hide();
         }

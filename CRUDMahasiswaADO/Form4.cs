@@ -44,6 +44,8 @@ namespace CRUDMahasiswaADO
             loadDataChart();
         }
 
+
+
         public void loadDataChart()
         {
             chartProdi.Series.Clear();
