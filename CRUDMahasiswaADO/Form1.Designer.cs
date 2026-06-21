@@ -63,21 +63,24 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mahasiswaTableAdapter = new CRUDMahasiswaADO.DBAkademikADODataSetTableAdapters.MahasiswaTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnTestInjection = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.TextBox();
             this.btnRekap = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnImpDB = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.btnCari = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // NIM
@@ -391,27 +394,27 @@
             // 
             this.mahasiswaTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
+            // btnReset
             // 
-            this.button1.Location = new System.Drawing.Point(857, 50);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Reset Data";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnResetData_Click);
+            this.btnReset.Location = new System.Drawing.Point(857, 50);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(88, 23);
+            this.btnReset.TabIndex = 20;
+            this.btnReset.Text = "Reset Data";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnResetData_Click);
             // 
-            // button2
+            // btnTestInjection
             // 
-            this.button2.Location = new System.Drawing.Point(857, 88);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 23);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Test";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnTestInjection_Click);
+            this.btnTestInjection.Location = new System.Drawing.Point(857, 88);
+            this.btnTestInjection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTestInjection.Name = "btnTestInjection";
+            this.btnTestInjection.Size = new System.Drawing.Size(88, 23);
+            this.btnTestInjection.TabIndex = 21;
+            this.btnTestInjection.Text = "Test";
+            this.btnTestInjection.UseVisualStyleBackColor = true;
+            this.btnTestInjection.Click += new System.EventHandler(this.btnTestInjection_Click);
             // 
             // lblTotal
             // 
@@ -449,14 +452,14 @@
             this.button4.Text = "Import from Excel";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnImpDB
             // 
-            this.button5.Location = new System.Drawing.Point(857, 249);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 51);
-            this.button5.TabIndex = 26;
-            this.button5.Text = "Import to Database";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnImpDB.Location = new System.Drawing.Point(857, 249);
+            this.btnImpDB.Name = "btnImpDB";
+            this.btnImpDB.Size = new System.Drawing.Size(88, 51);
+            this.btnImpDB.TabIndex = 26;
+            this.btnImpDB.Text = "Import to Database";
+            this.btnImpDB.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -475,20 +478,30 @@
             this.button6.Text = "Upload Gambar";
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // btnCari
+            // 
+            this.btnCari.Location = new System.Drawing.Point(407, 47);
+            this.btnCari.Name = "btnCari";
+            this.btnCari.Size = new System.Drawing.Size(75, 23);
+            this.btnCari.TabIndex = 29;
+            this.btnCari.Text = "Cari";
+            this.btnCari.UseVisualStyleBackColor = true;
+            // 
             // FormMahasiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 527);
+            this.ClientSize = new System.Drawing.Size(957, 636);
+            this.Controls.Add(this.btnCari);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnImpDB);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnRekap);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTestInjection);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDelete);
@@ -519,6 +532,7 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,15 +573,17 @@
         private DBAkademikADODataSet dBAkademikADODataSet;
         private System.Windows.Forms.BindingSource mahasiswaBindingSource;
         private DBAkademikADODataSetTableAdapters.MahasiswaTableAdapter mahasiswaTableAdapter;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnTestInjection;
         private System.Windows.Forms.TextBox lblTotal;
         private System.Windows.Forms.Button btnRekap;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnImpDB;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnCari;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 

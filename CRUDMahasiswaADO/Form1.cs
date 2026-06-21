@@ -22,7 +22,7 @@ namespace CRUDMahasiswaADO
 
         DAL dbLogic = new DAL();
 
-        private void SimpanLog(string pesan)
+        private void simpanLog(string pesan)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -68,30 +68,33 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand("sp_GetMahasiswa", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
+                bindingSource1.DataSource = dbLogic.GetMhs();
+                dataGridView1.DataSource = bindingSource1;
 
-                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                        {
-                            dtMahasiswa = new DataTable();
-                            da.Fill(dtMahasiswa);
+                DataGridViewImageColumn fotoColumn = (DataGridViewImageColumn)dataGridView1.Columns["Foto"];
+                fotoColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
-                            bindingSource.DataSource = dtMahasiswa;
-                            dataGridView1.DataSource = bindingSource;
-
-                            BindControls();
-                        }
-                    }
-                }
-                
                 HitungTotal();
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    Console.WriteLine("Name: " + col.Name + " | DataPropertyName: " + col.DataPropertyName);
+                }
+
+                dataGridView1.Enabled = true;
+                btnImpDB.Enabled = false;
+                btnInsert.Enabled = true;
+                btnUpdate.Enabled = true;
+                btnDelete.Enabled = true;
+                btnCari.Enabled = true;
+                btnLoad.Enabled = true;
+                btnReset.Enabled = true;
+                btnTestInjection.Enabled = true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal load data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                simpanLog(ex.Message);
+                MessageBox.Show("Gagal load data: " + ex.Message);
             }
         }
 
@@ -106,7 +109,7 @@ namespace CRUDMahasiswaADO
             }
             catch (Exception ex)
             {
-                SimpanLog(ex.Message);
+                simpanLog(ex.Message);
                 MessageBox.Show("Gagal load data: " + ex.Message);
             }
         }
@@ -204,14 +207,14 @@ namespace CRUDMahasiswaADO
             {
                 trans.Rollback();
 
-                SimpanLog("ROLLBACK INSERT :" + ex.Message);
+                simpanLog("ROLLBACK INSERT :" + ex.Message);
 
                 MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
                 trans.Rollback();
-                SimpanLog("GENERAL ERROR :" + ex.Message);
+                simpanLog("GENERAL ERROR :" + ex.Message);
             }
             finally
             {
