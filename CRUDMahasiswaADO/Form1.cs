@@ -271,28 +271,27 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                using (SqlConnection conn =
-                new SqlConnection(connectionString))
+                dbLogic.testInject(txtNIM.Text);
+
+                LoadData();
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Message.Contains("safe"))
                 {
-                    string query =
-                    "UPDATE Mahasiswa SET Nama='" +
-                    txtNama.Text +
-                    "' WHERE NIM='" +
-                    txtNIM.Text + "'";
-
-                    SqlCommand cmd =
-                    new SqlCommand(query, conn);
-
-                    conn.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Update berhasil");
+                    simpanLog(ex.Message);
+                    MessageBox.Show("SQL Error : Unsafe UPDATE operation not allowed");
+                }
+                else
+                {
+                    simpanLog(ex.Message);
+                    MessageBox.Show("SQL Error : " + ex.Message);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                simpanLog(ex.Message);
+                MessageBox.Show("General Error : " + ex.Message);
             }
         }
 
