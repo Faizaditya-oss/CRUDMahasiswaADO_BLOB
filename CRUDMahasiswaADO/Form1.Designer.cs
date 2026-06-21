@@ -205,6 +205,7 @@
             this.txtKodeProdi.Name = "txtKodeProdi";
             this.txtKodeProdi.Size = new System.Drawing.Size(200, 22);
             this.txtKodeProdi.TabIndex = 12;
+            this.txtKodeProdi.TextChanged += new System.EventHandler(this.txtKodeProdi_TextChanged);
             // 
             // btnConnect
             // 

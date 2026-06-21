@@ -166,6 +166,7 @@ namespace CRUDMahasiswaADO
                 }
 
                 byte[] imgBytes = ConvertImageToBytes(fotoMhs);
+
                 dbLogic.InsertMhs(txtNIM.Text, txtNama.Text, txtAlamat.Text, cmbJK.Text, dtpTanggalLahir.Value.Date, txtKodeProdi.Text, imgBytes);
 
                 MessageBox.Show("Data mahasiswa berhasil ditambahkan");
@@ -199,9 +200,13 @@ namespace CRUDMahasiswaADO
                     }
                 }
 
-                byte[] imgBytes = ConvertImageToBytes(fotoMhs);
-                dbLogic.UpdateMhs(txtNIM.Text, txtNama.Text, txtAlamat.Text, cmbJK.Text, dtpTanggalLahir.Value.Date, txtKodeProdi.Text, imgBytes);
+                byte[] imgBytes = null;
 
+                if (fotoMhs.Image != null)
+                {
+                    imgBytes = ConvertImageToBytes(fotoMhs);
+                }
+                dbLogic.UpdateMhs(txtNIM.Text, txtNama.Text, txtAlamat.Text, cmbJK.Text, dtpTanggalLahir.Value.Date, txtKodeProdi.Text, imgBytes);
                 MessageBox.Show("Data mahasiswa berhasil diubah");
                 ClearForm();
                 btnLoad.PerformClick();
@@ -475,6 +480,13 @@ namespace CRUDMahasiswaADO
                 simpanLog("General Error : " + ex.Message);
                 MessageBox.Show("General Error : " + ex.Message);
             }
+        }
+
+        
+
+        private void txtKodeProdi_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
