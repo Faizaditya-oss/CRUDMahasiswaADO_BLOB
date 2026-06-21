@@ -220,35 +220,33 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                DialogResult resultConfirm = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dg = MessageBox.Show(
+                    "Yakin ingin menghapus data?",
+                    "Konfirmasi",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-                if (resultConfirm == DialogResult.Yes)
+                if (dg == DialogResult.Yes)
                 {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    using (SqlCommand cmd = new SqlCommand("sp_DeleteMahasiswa", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add("@NIM", SqlDbType.Char, 11).Value = txtNIM.Text;
-
-                        conn.Open();
-                        int result = cmd.ExecuteNonQuery();
-
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Data berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ClearForm();
-                            LoadData();
-                        }
-                    }
+                    dbLogic.DeleteMhs(txtNIM.Text);
+                    MessageBox.Show("Data mahasiswa berhasil dihapus");
+                    ClearForm();
+                    btnLoad.PerformClick();
                 }
+            }
+            catch (SqlException ex)
+            {
+                simpanLog(ex.Message);
+                MessageBox.Show("SQL Error : " + ex.Message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal menghapus data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                simpanLog(ex.Message);
+                MessageBox.Show("General Error : " + ex.Message);
             }
         }
 
-      
+
         private void btnResetData_Click(object sender, EventArgs e)
         {
             try
