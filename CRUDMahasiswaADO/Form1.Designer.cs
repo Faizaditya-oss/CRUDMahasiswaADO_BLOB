@@ -65,12 +65,12 @@
             this.mahasiswaTableAdapter = new CRUDMahasiswaADO.DBAkademikADODataSetTableAdapters.MahasiswaTableAdapter();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnTestInjection = new System.Windows.Forms.Button();
-            this.lblTotal = new System.Windows.Forms.TextBox();
+            this.lblCountMhs = new System.Windows.Forms.TextBox();
             this.btnRekap = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnImpDB = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.fotoMhs = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
             this.btnCari = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -79,7 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMhs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -416,13 +416,13 @@
             this.btnTestInjection.UseVisualStyleBackColor = true;
             this.btnTestInjection.Click += new System.EventHandler(this.btnTestInjection_Click);
             // 
-            // lblTotal
+            // lblCountMhs
             // 
-            this.lblTotal.Location = new System.Drawing.Point(676, 318);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(180, 22);
-            this.lblTotal.TabIndex = 22;
+            this.lblCountMhs.Location = new System.Drawing.Point(676, 318);
+            this.lblCountMhs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lblCountMhs.Name = "lblCountMhs";
+            this.lblCountMhs.Size = new System.Drawing.Size(180, 22);
+            this.lblCountMhs.TabIndex = 22;
             // 
             // btnRekap
             // 
@@ -461,13 +461,13 @@
             this.btnImpDB.Text = "Import to Database";
             this.btnImpDB.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // fotoMhs
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(597, 135);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 137);
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
+            this.fotoMhs.Location = new System.Drawing.Point(597, 135);
+            this.fotoMhs.Name = "fotoMhs";
+            this.fotoMhs.Size = new System.Drawing.Size(112, 137);
+            this.fotoMhs.TabIndex = 27;
+            this.fotoMhs.TabStop = false;
             // 
             // button6
             // 
@@ -494,12 +494,12 @@
             this.ClientSize = new System.Drawing.Size(957, 636);
             this.Controls.Add(this.btnCari);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.fotoMhs);
             this.Controls.Add(this.btnImpDB);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnRekap);
-            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.lblCountMhs);
             this.Controls.Add(this.btnTestInjection);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.bindingNavigator1);
@@ -531,7 +531,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMhs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -575,12 +575,12 @@
         private DBAkademikADODataSetTableAdapters.MahasiswaTableAdapter mahasiswaTableAdapter;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnTestInjection;
-        private System.Windows.Forms.TextBox lblTotal;
+        private System.Windows.Forms.TextBox lblCountMhs;
         private System.Windows.Forms.Button btnRekap;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnImpDB;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox fotoMhs;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnCari;
         private System.Windows.Forms.BindingSource bindingSource1;

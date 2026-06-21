@@ -22,20 +22,9 @@ namespace CRUDMahasiswaADO
 
         DAL dbLogic = new DAL();
 
-        private void simpanLog(string pesan)
+        private void simpanLog(string message)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = @"INSERT INTO LogError VALUES(GETDATE(), @pesan)";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@pesan", pesan);
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            dbLogic.InsertLog(message);
         }
 
         public FormMahasiswa()
@@ -105,7 +94,7 @@ namespace CRUDMahasiswaADO
             {
                 int total = (dbLogic.CountMhs().Equals(DBNull.Value)) ? 0 : dbLogic.CountMhs();
 
-                lblTotal.Text = "Total Mahasiswa : " + total;
+                lblCountMhs.Text = "Total Mahasiswa : " + total;
             }
             catch (Exception ex)
             {
@@ -348,12 +337,14 @@ namespace CRUDMahasiswaADO
 
         private void ClearForm()
         {
+            txtNIM.Enabled = true;
             txtNIM.Clear();
             txtNama.Clear();
             cmbJK.SelectedIndex = -1;
             txtAlamat.Clear();
             txtKodeProdi.Clear();
             dtpTanggalLahir.Value = DateTime.Now;
+            fotoMhs.Image = null;
             txtNIM.Focus();
         }
 
