@@ -71,9 +71,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.btnImpDB = new System.Windows.Forms.Button();
             this.fotoMhs = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.btnCari = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnUpload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -470,15 +470,6 @@
             this.fotoMhs.TabIndex = 27;
             this.fotoMhs.TabStop = false;
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(597, 281);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(112, 23);
-            this.button6.TabIndex = 28;
-            this.button6.Text = "Upload Gambar";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // btnCari
             // 
             this.btnCari.Location = new System.Drawing.Point(407, 47);
@@ -488,13 +479,23 @@
             this.btnCari.Text = "Cari";
             this.btnCari.UseVisualStyleBackColor = true;
             // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(596, 277);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(113, 23);
+            this.btnUpload.TabIndex = 30;
+            this.btnUpload.Text = "Upload Gambar";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
             // FormMahasiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 636);
+            this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.btnCari);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.fotoMhs);
             this.Controls.Add(this.btnImpDB);
             this.Controls.Add(this.button4);
@@ -582,9 +583,9 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnImpDB;
         private System.Windows.Forms.PictureBox fotoMhs;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnCari;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button btnUpload;
     }
 }
 
