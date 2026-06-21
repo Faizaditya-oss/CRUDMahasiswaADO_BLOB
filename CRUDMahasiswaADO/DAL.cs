@@ -10,7 +10,7 @@ namespace CRUDMahasiswaADO
 {
     internal class DAL
     {
-        static string connectionString = "Data Source=LAPTOP-4UOCIEQ0\\FAIZADITYA;Initial Catalog=MahasiswaDB;Integrated Security=True";
+        static string connectionString = "Data Source=LAPTOP-4UOCIEQ0\\FAIZADITYA;Initial Catalog=DBAkademikADO;Integrated Security=True";
 
         SqlConnection conn = new SqlConnection(connectionString);
         SqlDataAdapter da;
@@ -23,14 +23,16 @@ namespace CRUDMahasiswaADO
             {
                 conn.Open();
             }
+
             SqlCommand cmd = new SqlCommand("sp_CountMahasiswa", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter outputParam = new SqlParameter("@pCount", SqlDbType.Int);
+            SqlParameter outputParam = new SqlParameter("@Total", SqlDbType.Int);
             outputParam.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(outputParam);
 
             cmd.ExecuteNonQuery();
+
             return Convert.ToInt32(outputParam.Value);
         }
 
@@ -60,7 +62,7 @@ namespace CRUDMahasiswaADO
             SqlTransaction trans = conn.BeginTransaction();
             try
             {
-                SqlCommand command = new SqlCommand("sp_InsertMahasiswa", conn);
+                SqlCommand command = new SqlCommand("sp_InsertMahasiswa", conn, trans);
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.AddWithValue("@pNIM", nim);

@@ -13,6 +13,7 @@ namespace CRUDMahasiswaADO
 {
     public partial class Form3 : Form
     {
+        DAL dbLogic = new DAL();
         static string connectionString = "Data Source=LAPTOP-4UOCIEQ0\\FAIZADITYA;Initial Catalog=DBAkademikADO;Integrated Security=True";
 
         SqlConnection conn = new SqlConnection(connectionString);
@@ -34,8 +35,10 @@ namespace CRUDMahasiswaADO
             {
                 DataTable dtMahasiswa = dbLogic.getDataRekap(prodi, tglmasuk);
 
-                listMahasiswa.SetDataSource(dtMahasiswa);
-                crystalReportViewer1.ReportSource = listMahasiswa;
+                CrystalReportsGallery report = new CrystalReportsGallery();
+
+                report.SetDataSource(dtMahasiswa);
+                crystalReportViewer1.ReportSource = report;
                 crystalReportViewer1.Refresh();
             }
             catch (Exception ex)

@@ -24,6 +24,8 @@ namespace CRUDMahasiswaADO
 
         DAL dbLogic = new DAL();
 
+        
+
         private void simpanLog(string message)
         {
             dbLogic.InsertLog(message);
@@ -126,7 +128,7 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(dbLogic.GetConnectionString()))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     MessageBox.Show("Koneksi Berhasil");
@@ -321,7 +323,7 @@ namespace CRUDMahasiswaADO
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Report form2 = new Report();
+            Form2 form2 = new Form2();
             form2.Show();
             this.Hide();
         }
